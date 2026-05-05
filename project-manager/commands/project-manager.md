@@ -28,8 +28,17 @@ You are running a fixed 4-stage pipeline. Complete every stage in order. **Never
 - Wait for Yes before continuing. If No, ask what needs revisiting and return to CODER.
 - **QA:** Call 'qa-tester' to verify the work. Wait for `STAGE_COMPLETE: qa` or `QA_FAILED:` in its response.
   - If `QA_FAILED:` — call 'coder' to fix the reported issues, then re-run 'qa-tester'. Repeat until `STAGE_COMPLETE: qa`.
-  - If `STAGE_COMPLETE: qa` — ask: "QA passed. Ready to proceed to Stage 3: Review? (Yes/No)"
-- Wait for Yes before continuing.
+  - If `STAGE_COMPLETE: qa` — **STOP. Do not proceed.** Present the QA summary, then output exactly:
+
+    > ✅ QA passed. You can manually review the changes before before continuing.
+    >
+    > Ready to proceed to Stage 3: Review? **(Yes / No)**
+    >
+    > — Reply **Yes** to continue, or **No** to provide feedback first.
+
+- **WAIT for explicit user reply. Do NOT continue to Stage 3 until the user replies.**
+- If Yes — proceed to Stage 3.
+- If No — ask: "What issues did you find, or what would you like to change?" Then return to CODER with the feedback and re-run QA before presenting this gate again.
 
 ---
 
