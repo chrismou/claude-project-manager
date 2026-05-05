@@ -30,7 +30,7 @@ You are running a fixed 4-stage pipeline. Complete every stage in order. **Never
   - If `QA_FAILED:` — call 'coder' to fix the reported issues, then re-run 'qa-tester'. Repeat until `STAGE_COMPLETE: qa`.
   - If `STAGE_COMPLETE: qa` — **STOP. Do not proceed.** Present the QA summary, then output exactly:
 
-    > ✅ QA passed. You can manually review the changes before before continuing.
+    > ✅ QA passed. You can manually review the changes before continuing.
     >
     > Ready to proceed to Stage 3: Review? **(Yes / No)**
     >
